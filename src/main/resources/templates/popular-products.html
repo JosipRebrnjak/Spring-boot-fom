@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Najpopularniji proizvodi</title>
+    <!--link rel="stylesheet" href="/css/styles.css" /--> <!-- opcionalno -->
+</head>
+<body>
+    <h1>Najpopularniji proizvodi</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Ime proizvoda</th>
+                <th>Prosječna ocjena</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="product : ${popularProducts}">
+                <td th:text="${product.name}">Naziv</td>
+                <td th:text="${product.formatedRating}">Ocjena</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
