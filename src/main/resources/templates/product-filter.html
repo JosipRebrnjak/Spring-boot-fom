@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Filtriraj proizvode</title>
+</head>
+<body>
+    <h2>Filtriraj proizvode</h2>
+
+    <!-- Forma za filtriranje -->
+    <form th:action="@{/thyme/filter}" method="get">
+        <label for="code">Kod:</label>
+        <input type="text" id="code" name="code" th:value="${code}"/>
+
+        <label for="name">Naziv:</label>
+        <input type="text" id="name" name="name" th:value="${name}"/>
+
+        <button type="submit">Filtriraj</button>
+    </form>
+
+    <h3>Filtrirani proizvodi</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Kod</th>
+                <th>Ime</th>
+                <th>Cijena (EUR)</th>
+                <th>Cijena (USD)</th>
+                <th>Valuta</th>  <!-- Prikaz valute -->
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Ako postoji lista proizvoda, prikaži ih -->
+            <tr th:each="product : ${products}">
+                <td th:text="${product.code}"></td>
+                <td th:text="${product.name}"></td>
+                <td th:text="${product.priceEur}"></td>
+                <td th:text="${product.priceUsd}"></td>
+                <td th:text="${product.currency}"></td>  <!-- Prikaz valute -->
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Ako nema proizvoda, prikaži poruku -->
+    <div th:if="${#lists.isEmpty(products)}">
+        <p>No products found matching your filters.</p>
+    </div>
+</body>
+</html>
