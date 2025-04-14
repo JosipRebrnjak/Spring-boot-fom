@@ -1,6 +1,8 @@
 package com.spring.rest.fom.dto;
 
 import java.math.BigDecimal;
+import java.util.List;
+
 
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
@@ -36,4 +38,6 @@ public class ProductDTO {
     @NotBlank(message = "Unit of measure ne smije biti prazan.")
     @Pattern(regexp = "EUR|USD", message = "Dozvoljene valute su: EUR, USD")
     private String currency = "EUR";
+
+    private List<ReviewDTO> reviews;
 }

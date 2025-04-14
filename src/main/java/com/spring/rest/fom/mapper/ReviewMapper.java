@@ -2,6 +2,7 @@ package com.spring.rest.fom.mapper;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.factory.Mappers;
 
 import com.spring.rest.fom.dto.ReviewDTO;
 import com.spring.rest.fom.entity.Product;
@@ -10,6 +11,8 @@ import com.spring.rest.fom.entity.Review;
 
 @Mapper(componentModel = "spring")
 public interface ReviewMapper {
+
+    ReviewMapper INSTANCE = Mappers.getMapper(ReviewMapper.class);
 
     @Mapping(source = "product.id", target = "productId")
     ReviewDTO toDTO(Review review);

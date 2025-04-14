@@ -17,7 +17,7 @@
     </div>
 
     <!-- Forma za unos proizvoda -->
-    <form th:action="@{/products/create}" th:object="${productDTO}" method="post">
+    <form th:action="@{/thyme/create}" th:object="${productDTO}" method="post">
         
         <!-- Šifra proizvoda -->
         <div>
@@ -41,6 +41,12 @@
         <div>
             <label for="description">Opis:</label>
             <textarea th:field="*{description}" id="description" placeholder="Unesite opis" rows="4" cols="50" required></textarea>
+        </div>
+
+        <!-- Valuta proizvoda -->
+        <div>
+            <label for="currency">Valuta:</label>
+            <input type="text" th:field="*{currency}" id="currency" placeholder="Unesite valutu" required maxlength="3"/>
         </div>
 
         <div>

@@ -26,13 +26,13 @@ import lombok.Setter;
 @Table(name = "product")
 public class Product {
 
-    public Product(String code, String name, BigDecimal priceEur, BigDecimal priceUsd, String description, String unit) {
+    public Product(String code, String name, BigDecimal priceEur, BigDecimal priceUsd, String description, String currency) {
         this.code = code;
         this.name = name;
         this.priceEur = priceEur;
         this.priceUsd = priceUsd;
         this.description = description;
-        this.unit=unit;
+        this.currency=currency;
     }
 
     @Id
@@ -57,9 +57,9 @@ public class Product {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "unit")
+    @Column(name = "currency")
     @NotEmpty(message = "Valuta ne smije biti prazna.")
-    private String unit;
+    private String currency;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private List<Review> reviews;

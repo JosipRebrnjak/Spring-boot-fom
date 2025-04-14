@@ -30,6 +30,8 @@ public class ProductWebController {
 
     @PostMapping("/create")
     public String createProduct(@ModelAttribute ProductDTO productDTO, Model model) {
+
+        System.out.println("Received ProductDTO: " + productDTO);
         try {
             productService.createProduct(productDTO);
             model.addAttribute("successMessage", "Proizvod je uspješno dodan!");
