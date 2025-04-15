@@ -1,4 +1,4 @@
-package com.spring.rest.fom.controller;
+package com.spring.rest.fom.controller.api;
 
 import com.spring.rest.fom.dto.PopularProductDTO;
 import com.spring.rest.fom.dto.ProductDTO;

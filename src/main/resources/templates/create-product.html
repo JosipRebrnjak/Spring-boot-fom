@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Unos Produkta</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-</head>
+<!-- Include header fragment -->
+<th:block th:replace="~{fragments/header :: header('Unos proizvoda')}"></th:block>
+
 <body>
 
     <h1>Unos novog proizvoda</h1>
@@ -18,35 +17,38 @@
 
     <!-- Forma za unos proizvoda -->
     <form th:action="@{/thyme/create}" th:object="${productDTO}" method="post">
-        
+
         <!-- Šifra proizvoda -->
         <div>
             <label for="code">Šifra:</label>
-            <input type="text" th:field="*{code}" id="code" placeholder="Unesite šifru" required maxlength="15"/>
+            <input type="text" th:field="*{code}" id="code" placeholder="Unesite šifru" required maxlength="15" />
         </div>
 
         <!-- Ime proizvoda -->
         <div>
             <label for="name">Ime:</label>
-            <input type="text" th:field="*{name}" id="name" placeholder="Unesite ime" required/>
+            <input type="text" th:field="*{name}" id="name" placeholder="Unesite ime" required />
         </div>
 
         <!-- Cijena proizvoda u EUR -->
         <div>
             <label for="priceEur">Cijena u EUR:</label>
-            <input type="number" th:field="*{priceEur}" id="priceEur" placeholder="Unesite cijenu" step="0.01" required/>
+            <input type="number" th:field="*{priceEur}" id="priceEur" placeholder="Unesite cijenu" step="0.01"
+                required />
         </div>
 
         <!-- Opis proizvoda -->
         <div>
             <label for="description">Opis:</label>
-            <textarea th:field="*{description}" id="description" placeholder="Unesite opis" rows="4" cols="50" required></textarea>
+            <textarea th:field="*{description}" id="description" placeholder="Unesite opis" rows="4" cols="50"
+                required></textarea>
         </div>
 
         <!-- Valuta proizvoda -->
         <div>
             <label for="currency">Valuta:</label>
-            <input type="text" th:field="*{currency}" id="currency" placeholder="Unesite valutu" required maxlength="3"/>
+            <input type="text" th:field="*{currency}" id="currency" placeholder="Unesite valutu" required
+                maxlength="3" />
         </div>
 
         <div>
@@ -54,5 +56,8 @@
         </div>
     </form>
 
+    <!-- Include footer fragment -->
+    <th:block th:replace="~{fragments/footer :: footer}"></th:block>
 </body>
+
 </html>

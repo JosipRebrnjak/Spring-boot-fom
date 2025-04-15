@@ -1,4 +1,4 @@
-package com.spring.rest.fom.controller;
+package com.spring.rest.fom.controller.api;
 
 import java.util.List;
 

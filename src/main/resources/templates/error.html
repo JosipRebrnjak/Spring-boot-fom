@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
+  <head>
     <title>Greška</title>
-</head>
-<body>
-    <h1>Došlo je do greške</h1>
-    <p>Molimo pokušajte ponovo ili kontaktirajte podršku.</p>
-</body>
+    <th:block th:replace="~{fragments/header :: header('Greška')}"></th:block>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Došlo je do greške</h1>
+      <p th:text="${errorMessage}">Nepoznata greška.</p>
+    </div>
+    <th:block th:replace="fragments/footer :: footer"></th:block>
+  </body>
 </html>

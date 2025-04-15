@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Filtriraj proizvode</title>
-</head>
+
+<!-- Include header fragment -->
+<th:block th:replace="~{fragments/header :: header('Filtriraj proizvode')}"></th:block>
+
 <body>
     <h2>Filtriraj proizvode</h2>
 
@@ -44,5 +45,7 @@
     <div th:if="${#lists.isEmpty(products)}">
         <p>No products found matching your filters.</p>
     </div>
+
+    <th:block th:replace="~{fragments/footer :: footer}"></th:block>
 </body>
 </html>
