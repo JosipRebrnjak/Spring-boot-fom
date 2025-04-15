@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
-import com.spring.rest.fom.dto.ApiResponse;
+import com.spring.rest.fom.response.ApiResponse;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {

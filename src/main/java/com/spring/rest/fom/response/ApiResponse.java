@@ -1,4 +1,4 @@
-package com.spring.rest.fom.dto;
+package com.spring.rest.fom.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

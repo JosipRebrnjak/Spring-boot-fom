@@ -4,8 +4,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.spring.rest.fom.dto.PopularProductProjection;
 import com.spring.rest.fom.entity.Review;
+import com.spring.rest.fom.projection.PopularProductProjection;
+
 import java.util.List;
 
 @Repository

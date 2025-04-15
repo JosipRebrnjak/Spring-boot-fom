@@ -1,11 +1,11 @@
 package com.spring.rest.fom.service;
 
 import com.spring.rest.fom.dto.PopularProductDTO;
-import com.spring.rest.fom.dto.PopularProductProjection;
 import com.spring.rest.fom.dto.ProductDTO;
 import com.spring.rest.fom.entity.Product;
 import com.spring.rest.fom.exception.ResourceNotFoundException;
 import com.spring.rest.fom.mapper.ProductMapper;
+import com.spring.rest.fom.projection.PopularProductProjection;
 import com.spring.rest.fom.repository.ProductRepository;
 import com.spring.rest.fom.repository.ReviewRepository;
 

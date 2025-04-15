@@ -1,6 +1,8 @@
-package com.spring.rest.fom.dto;
+package com.spring.rest.fom.response;
 
 import java.util.List;
+
+import com.spring.rest.fom.dto.PopularProductDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

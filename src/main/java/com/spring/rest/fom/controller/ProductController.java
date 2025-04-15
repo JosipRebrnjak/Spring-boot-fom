@@ -1,9 +1,9 @@
 package com.spring.rest.fom.controller;
 
-import com.spring.rest.fom.dto.ApiResponse;
 import com.spring.rest.fom.dto.PopularProductDTO;
-import com.spring.rest.fom.dto.PopularProductsResponse;
 import com.spring.rest.fom.dto.ProductDTO;
+import com.spring.rest.fom.response.ApiResponse;
+import com.spring.rest.fom.response.PopularProductsResponse;
 import com.spring.rest.fom.service.ProductService;
 
 import jakarta.validation.Valid;

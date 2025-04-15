@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.spring.rest.fom.dto.ApiResponse;
 import com.spring.rest.fom.dto.ReviewDTO;
+import com.spring.rest.fom.response.ApiResponse;
 import com.spring.rest.fom.service.ReviewService;
 
 import jakarta.validation.Valid;
