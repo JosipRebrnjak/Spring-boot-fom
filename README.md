@@ -2,11 +2,21 @@
 First of many (FOM) Spring-boot project with h2 database, Thymeleaf templating engine, RESTapi for standalone client is ready, Swagger-UI implemented on RESTapi endpoints.
 This project was made as an assignment for a job application.
 
-Starting app:
+Starting app
+
+In terminal of your choice navigate to root folder of this project (the same folder where this README.md file is located).
+
+1. U have installed Maven:
 
 mvn clean install
 
 mvn spring-boot:run
+
+2. Don't have Maven: // use a maven wrapper which is bundled in the project of this repo
+
+mvnw clean install
+
+mvnw spring-boot:run
 
 
 Thymeleaf UI:
