@@ -3,23 +3,31 @@
 
 <th:block th:replace="~{fragments/header :: header('Najpopularniji proizvodi')}"></th:block>
 
-<body>
-    <h1>Najpopularniji proizvodi</h1>
+<body class="d-flex flex-column min-vh-100">
+    <div class="container mt-5 flex-grow-1">
+        <h1 class="mb-4">Najpopularniji proizvodi</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Ime proizvoda</th>
-                <th>Prosječna ocjena</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="product : ${popularProducts}">
-                <td th:text="${product.name}">Naziv</td>
-                <td th:text="${product.formatedRating}">Ocjena</td>
-            </tr>
-        </tbody>
-    </table>
+        <div th:if="${not #lists.isEmpty(popularProducts)}" class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Ime proizvoda</th>
+                        <th>Prosječna ocjena</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="product : ${popularProducts}">
+                        <td th:text="${product.name}">Naziv</td>
+                        <td th:text="${product.formatedRating}">Ocjena</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div th:if="${#lists.isEmpty(popularProducts)}" class="alert alert-info" role="alert">
+            Trenutno nema popularnih proizvoda za prikaz.
+        </div>
+    </div>
 
     <th:block th:replace="~{fragments/footer :: footer}"></th:block>
 </body>

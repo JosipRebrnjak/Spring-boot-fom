@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
-    <title>Greška</title>
     <th:block th:replace="~{fragments/header :: header('Greška')}"></th:block>
   </head>
-  <body>
-    <div class="container">
-      <h1>Došlo je do greške</h1>
-      <p th:text="${errorMessage}">Nepoznata greška.</p>
+  <body class="d-flex flex-column min-vh-100">
+    <div class="container flex-grow-1 d-flex flex-column justify-content-center align-items-center text-center py-5">
+      <div class="card shadow p-4" style="max-width: 600px; width: 100%;">
+        <h1 class="text-danger mb-3">Greška</h1>
+        <p th:text="${errorMessage}" class="lead">Nepoznata greška.</p>
+        <a href="/" class="btn btn-outline-primary mt-3">Povratak na početnu</a>
+      </div>
     </div>
+
     <th:block th:replace="fragments/footer :: footer"></th:block>
   </body>
 </html>

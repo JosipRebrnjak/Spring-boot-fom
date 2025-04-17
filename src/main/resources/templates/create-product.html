@@ -3,61 +3,52 @@
 <!-- Include header fragment -->
 <th:block th:replace="~{fragments/header :: header('Unos proizvoda')}"></th:block>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
+    <div class="container mt-5 flex-grow-1">
+        <h1 class="mb-4">Unos novog proizvoda</h1>
 
-    <h1>Unos novog proizvoda</h1>
+        <!-- Prikaz poruka o uspjehu ili grešci -->
+        <div th:if="${successMessage}" class="alert alert-success" role="alert">
+            <p th:text="${successMessage}"></p>
+        </div>
+        <div th:if="${errorMessage}" class="alert alert-danger" role="alert">
+            <p th:text="${errorMessage}"></p>
+        </div>
 
-    <!-- Prikaz poruka o uspjehu ili grešci -->
-    <div th:if="${successMessage}" style="color: green;">
-        <p th:text="${successMessage}"></p>
+        <!-- Forma za unos proizvoda -->
+        <form th:action="@{/thyme/create}" th:object="${productDTO}" method="post">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="code" class="form-label">Šifra</label>
+                    <input type="text" th:field="*{code}" id="code" class="form-control" placeholder="Unesite šifru" required maxlength="15" />
+                </div>
+                <div class="col-md-6">
+                    <label for="name" class="form-label">Ime</label>
+                    <input type="text" th:field="*{name}" id="name" class="form-control" placeholder="Unesite ime" required />
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="priceEur" class="form-label">Cijena u EUR</label>
+                    <input type="number" th:field="*{priceEur}" id="priceEur" class="form-control" placeholder="Unesite cijenu" step="0.01" required />
+                </div>
+                <div class="col-md-6">
+                    <label for="currency" class="form-label">Valuta</label>
+                    <input type="text" th:field="*{currency}" id="currency" class="form-control" placeholder="Unesite valutu" required maxlength="3" />
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-label">Opis</label>
+                <textarea th:field="*{description}" id="description" class="form-control" placeholder="Unesite opis" rows="4" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Spremi proizvod</button>
+        </form>
     </div>
-    <div th:if="${errorMessage}" style="color: red;">
-        <p th:text="${errorMessage}"></p>
-    </div>
-
-    <!-- Forma za unos proizvoda -->
-    <form th:action="@{/thyme/create}" th:object="${productDTO}" method="post">
-
-        <!-- Šifra proizvoda -->
-        <div>
-            <label for="code">Šifra:</label>
-            <input type="text" th:field="*{code}" id="code" placeholder="Unesite šifru" required maxlength="15" />
-        </div>
-
-        <!-- Ime proizvoda -->
-        <div>
-            <label for="name">Ime:</label>
-            <input type="text" th:field="*{name}" id="name" placeholder="Unesite ime" required />
-        </div>
-
-        <!-- Cijena proizvoda u EUR -->
-        <div>
-            <label for="priceEur">Cijena u EUR:</label>
-            <input type="number" th:field="*{priceEur}" id="priceEur" placeholder="Unesite cijenu" step="0.01"
-                required />
-        </div>
-
-        <!-- Opis proizvoda -->
-        <div>
-            <label for="description">Opis:</label>
-            <textarea th:field="*{description}" id="description" placeholder="Unesite opis" rows="4" cols="50"
-                required></textarea>
-        </div>
-
-        <!-- Valuta proizvoda -->
-        <div>
-            <label for="currency">Valuta:</label>
-            <input type="text" th:field="*{currency}" id="currency" placeholder="Unesite valutu" required
-                maxlength="3" />
-        </div>
-
-        <div>
-            <button type="submit">Spremi proizvod</button>
-        </div>
-    </form>
 
     <!-- Include footer fragment -->
     <th:block th:replace="~{fragments/footer :: footer}"></th:block>
 </body>
-
 </html>
