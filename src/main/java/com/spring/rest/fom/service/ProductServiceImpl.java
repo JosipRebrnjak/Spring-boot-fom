@@ -42,17 +42,9 @@ public class ProductServiceImpl implements ProductService {
 
         List<Product> products;
 
-          
+      
+        products = productRepository.searchByFilters(code, name);
 
-        if (code != null && name != null) {
-            products = productRepository.findByCodeContainingIgnoreCaseAndNameContainingIgnoreCase(code, name);
-        } else if (code != null) {
-            products = productRepository.findByCodeContainingIgnoreCase(code);
-        } else if (name != null) {
-            products = productRepository.findByNameContainingIgnoreCase(name);
-        } else {
-            products = (List<Product>) productRepository.findAll();
-        }
         if (products.isEmpty()) {
             throw new ResourceNotFoundException("Nema produkata koji odgovaraju filterima.");
         }
