@@ -42,7 +42,7 @@ public class Review {
     private String text;
 
     @Min(value = 1, message = "Ocjena mora biti najmanje 1")
-    @Max(value = 5, message = "Ocjena može biti najviše 5")
+    @Max(value = 10, message = "Ocjena može biti najviše 10")
     @Column(name = "rating")
     private int rating;
 
