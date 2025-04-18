@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("/api/products")
 @RequiredArgsConstructor
 public class ProductController {
 
@@ -57,7 +57,7 @@ public class ProductController {
      * }
      */
 
-    // Ovako sam prilagodio response kako bih zadovoljavao uvjete, pravilniji je
+    // Ovako sam prilagodio response kako bih zadovoljavao uvjete zadanog zadatka, pravilniji je
     // response iznad
     @GetMapping("/popular")
     public ResponseEntity<PopularProductsResponse> getPopularProducts() {

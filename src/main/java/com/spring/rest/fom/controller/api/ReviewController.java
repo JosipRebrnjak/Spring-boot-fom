@@ -19,13 +19,13 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("/api/reviews")
 @RequiredArgsConstructor
 public class ReviewController {
 
     private final ReviewService reviewService;
 
-    @PostMapping("{productId}/reviews")
+    @PostMapping("/{productId}")
     public ResponseEntity<ApiResponse<ReviewDTO>> createReview(@PathVariable Long productId,
             @Valid @RequestBody ReviewDTO reviewDTO) {
         ReviewDTO createdReview = reviewService.createReview(reviewDTO);
@@ -36,7 +36,7 @@ public class ReviewController {
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
-    @GetMapping("/{productId}/reviews")
+    @GetMapping("/{productId}")
     public ResponseEntity<ApiResponse<List<ReviewDTO>>> getAllReviewsByProduct(@PathVariable Long productId) {
         List<ReviewDTO> reviews = reviewService.getAllReviewsByProduct(productId);
         ApiResponse<List<ReviewDTO>> response = new ApiResponse<>(

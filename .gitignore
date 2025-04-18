@@ -56,3 +56,14 @@ build/
 # Log files
 *.log
 /logs/
+
+#Client part
+
+# React build output
+/fom-client/build/
+
+# Node modules
+/fom-client/node_modules/
+
+# log files
+/fom-client/*.log
