@@ -11,6 +11,7 @@ import java.util.List;
 
 @Repository
 public interface ReviewRepository extends JpaRepository<Review, Long> {
+        
    @Query(
     value = "SELECT p.name AS name, ROUND(AVG(r.rating), 1) AS averageRating " +
             "FROM review r JOIN product p ON r.product_id = p.id " +

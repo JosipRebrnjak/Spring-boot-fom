@@ -14,7 +14,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     boolean existsByCode(String code);
 
 /*
-    //Ne koristimo, ali neka ostane kao primjer Spring Data auto generacije querya
+    //Ne koristimo, ali neka ostane kao primjer Spring Data auto generacije querya (imeQuerya = funkcija querya) 
     List<Product> findByCodeContainingIgnoreCase(String code);
     List<Product> findByNameContainingIgnoreCase(String name);
 */
