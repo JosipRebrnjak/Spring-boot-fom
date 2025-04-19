@@ -35,26 +35,21 @@ public class ProductController {
     public ResponseEntity<ApiResponse<List<ProductDTO>>> getFilteredProducts(
             @RequestParam(required = false) String code,
             @RequestParam(required = false) String name) {
-        
         List<ProductDTO> products = productService.getFilteredProducts(code, name);
-        
         ApiResponse<List<ProductDTO>> response = new ApiResponse<>(
                 true,
                 "Produkti dohvaćeni.",
                 products);   
-
         return ResponseEntity.ok(response);
     }
 
     @GetMapping("/popular")
     public ResponseEntity<ApiResponse<List<PopularProductDTO>>> getPopularProducts() {
         List<PopularProductDTO> popularProducts = productService.getTop3PopularProducts();
-
         ApiResponse<List<PopularProductDTO>> response = new ApiResponse<>(
                 true,
                 "Tri najpopularnija produkta dohvaćena.",
                 popularProducts);
-
         return ResponseEntity.ok(response);
     }
 

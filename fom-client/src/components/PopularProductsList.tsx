@@ -1,5 +1,6 @@
 import React from 'react';
 import { PopularProduct } from '../types/PopularProduct';
+import StarRating from './StarRating';
 
 
 
@@ -23,7 +24,10 @@ const PopularProductList: React.FC<Props> = ({ popularProducts }) => {
           <tr key={p.code}>
             <td>{p.code}</td>
             <td>{p.name}</td>
-            <td>{p.formatedRating}</td>
+            <td>
+                <StarRating rating={p.averageRating} />
+                <span className="ml-2 text-sm text-gray-600">({p.formatedRating})</span>
+            </td>
             <td>{p.priceEur}</td>
           </tr>
         ))}
