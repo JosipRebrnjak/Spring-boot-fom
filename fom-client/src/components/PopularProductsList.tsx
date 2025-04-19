@@ -1,32 +1,30 @@
 import React from 'react';
-import { Product } from '../types/Product';
+import { PopularProduct } from '../types/PopularProduct';
 
 
 
 type Props = {
-  products: Product[];
+  popularProducts: PopularProduct[];
 };
 
-const ProductList: React.FC<Props> = ({ products }) => {
+const PopularProductList: React.FC<Props> = ({ popularProducts }) => {
   return (
     <table>
       <thead>
         <tr>
           <th>Kod</th>
           <th>Naziv</th>
+          <th>Ocjena</th>
           <th>EUR</th>
-          <th>USD</th>
-          <th>Valuta</th>
         </tr>
       </thead>
       <tbody>
-        {products.map((p) => (
+        {popularProducts.map((p) => (
           <tr key={p.code}>
             <td>{p.code}</td>
             <td>{p.name}</td>
+            <td>{p.formatedRating}</td>
             <td>{p.priceEur}</td>
-            <td>{p.priceUsd}</td>
-            <td>{p.currency}</td>
           </tr>
         ))}
       </tbody>
@@ -34,4 +32,4 @@ const ProductList: React.FC<Props> = ({ products }) => {
   );
 };
 
-export default ProductList;
+export default PopularProductList;

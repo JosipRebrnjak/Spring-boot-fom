@@ -3,12 +3,10 @@ package com.spring.rest.fom.controller.api;
 import com.spring.rest.fom.dto.PopularProductDTO;
 import com.spring.rest.fom.dto.ProductDTO;
 import com.spring.rest.fom.response.ApiResponse;
-import com.spring.rest.fom.response.PopularProductsResponse;
 import com.spring.rest.fom.service.ProductService;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,37 +32,43 @@ public class ProductController {
     }
 
     @GetMapping("/filter")
-    public ResponseEntity<List<ProductDTO>> getFilteredProducts(
+    public ResponseEntity<ApiResponse<List<ProductDTO>>> getFilteredProducts(
             @RequestParam(required = false) String code,
             @RequestParam(required = false) String name) {
-        return ResponseEntity.ok(productService.getFilteredProducts(code, name));
+        
+        List<ProductDTO> products = productService.getFilteredProducts(code, name);
+        
+        ApiResponse<List<ProductDTO>> response = new ApiResponse<>(
+                true,
+                "Produkti dohvaćeni.",
+                products);   
+
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/popular")
+    public ResponseEntity<ApiResponse<List<PopularProductDTO>>> getPopularProducts() {
+        List<PopularProductDTO> popularProducts = productService.getTop3PopularProducts();
+
+        ApiResponse<List<PopularProductDTO>> response = new ApiResponse<>(
+                true,
+                "Tri najpopularnija produkta dohvaćena.",
+                popularProducts);
+
+        return ResponseEntity.ok(response);
     }
 
     /*
+     * // Ovaj mapping je postavljen kako bih zadovoljavao uvjete zadanog zadatka,
+     * // pravilniji je response iznad
+     * 
      * @GetMapping("/popular")
-     * public ResponseEntity<ApiResponse<List<PopularProductDTO>>>
-     * getPopularProducts() {
-     * List<PopularProductDTO> popularProducts =
-     * reviewService.getTop3PopularProducts();
-     * 
-     * ApiResponse<List<PopularProductDTO>> response = new ApiResponse<>(
-     * true,
-     * "Tri najpopularnija produkta dohvaćena.",
-     * popularProducts
-     * );
-     * 
+     * public ResponseEntity<PopularProductsResponse> getPopularProducts() {
+     * List<PopularProductDTO> topRated = productService.getTop3PopularProducts();
+     * PopularProductsResponse response = new PopularProductsResponse(topRated);
      * return ResponseEntity.ok(response);
      * }
      */
-
-    // Ovako sam prilagodio response kako bih zadovoljavao uvjete zadanog zadatka, pravilniji je
-    // response iznad
-    @GetMapping("/popular")
-    public ResponseEntity<PopularProductsResponse> getPopularProducts() {
-        List<PopularProductDTO> topRated = productService.getTop3PopularProducts();
-        PopularProductsResponse response = new PopularProductsResponse(topRated);
-        return ResponseEntity.ok(response);
-    }
 
     @PostMapping
     public ResponseEntity<ApiResponse<ProductDTO>> createProduct(@Valid @RequestBody ProductDTO productDTO) {

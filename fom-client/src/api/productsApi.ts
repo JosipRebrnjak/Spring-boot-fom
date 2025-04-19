@@ -17,7 +17,18 @@ export const fetchProducts = async (code?: string, name?: string): Promise<Produ
   try {
   const response = await axios.get<Product[]>(`${API_URL}/filter`, { params });
   console.log(response.data);
-  return response.data;
+  return response.data.data;
+  } catch (error) {
+    console.error('Greška pri dohvatu produkata:', error);
+    throw error; 
+  }
+};
+
+export const fetchPopularProducts = async (): Promise<Product[]> => {
+  try {
+  const response = await axios.get<Product[]>(`${API_URL}/popular`, {});
+  console.log(response.data);
+  return response.data.data;
   } catch (error) {
     console.error('Greška pri dohvatu produkata:', error);
     throw error; 

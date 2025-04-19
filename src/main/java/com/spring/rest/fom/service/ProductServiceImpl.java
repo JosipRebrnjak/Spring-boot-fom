@@ -83,9 +83,8 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<PopularProductDTO> getTop3PopularProducts() {
     List<PopularProductProjection> projections = reviewRepository.findTop3PopularProducts();
-
     return projections.stream()
-        .map(p -> new PopularProductDTO(p.getName(), p.getAverageRating(),String.format("%.1f", p.getAverageRating())))
+        .map(p -> new PopularProductDTO(p.getCode(), p.getName(), p.getAverageRating(), String.format("%.1f", p.getAverageRating()), p.getPriceEur()))
         .collect(Collectors.toList());
     }
 }

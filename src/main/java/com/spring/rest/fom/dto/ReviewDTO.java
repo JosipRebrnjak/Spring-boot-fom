@@ -28,7 +28,7 @@ public class ReviewDTO {
 
     @NotNull(message = "Ocjena mora biti zadana.")
     @Min(value = 1, message = "Ocjena  mora biti veća od 1.")
-    @Max(value = 10, message = "Ocjena mora biti manja ili jednaka 10.")
+    @Max(value = 5, message = "Ocjena mora biti manja ili jednaka 5.")
     private int rating;
 }
 
