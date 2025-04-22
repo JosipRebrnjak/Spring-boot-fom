@@ -8,11 +8,11 @@ import com.spring.rest.fom.dto.ReviewDTO;
 import com.spring.rest.fom.entity.Product;
 import com.spring.rest.fom.entity.Review;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = ProductMapper.class)
 public interface ReviewMapper {
 
     ReviewMapper INSTANCE = Mappers.getMapper(ReviewMapper.class);
-
+    
     @Mapping(source = "product.id", target = "productId")
     @Mapping(source = "product.name", target = "productName")
     ReviewDTO toDTO(Review review);
