@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import com.spring.rest.fom.entity.Product;
@@ -11,6 +12,7 @@ import com.spring.rest.fom.entity.Review;
 import com.spring.rest.fom.repository.ProductRepository;
 import com.spring.rest.fom.repository.ReviewRepository;
 
+@Profile("dev")
 @Component
 public class DataInitializer implements CommandLineRunner {
 
