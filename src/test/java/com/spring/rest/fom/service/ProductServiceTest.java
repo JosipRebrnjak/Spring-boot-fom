@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
+import com.spring.rest.fom.dto.ProductDTO;
 import com.spring.rest.fom.entity.Product;
 import com.spring.rest.fom.repository.ProductRepository;
 
@@ -21,5 +22,8 @@ public class ProductServiceTest {
     @InjectMocks
     private ProductService productService;
 
-   
+   @Test
+   void testCreateProduct(ProductDTO product){
+    
+   }
 }

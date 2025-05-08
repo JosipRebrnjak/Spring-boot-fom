@@ -105,13 +105,3 @@ The response object should look like this (rating rounded to one decimal place):
 }
 
 
-EXTRA:
-
-Music listened while coding:
-https://www.youtube.com/watch?v=aCXzh20qehU&ab_channel=SamuraiWorkTunes   (Midnight Groove: Japanese-Inspired 90s Hip Hop for Intense Concentration & Relaxed Evenings)
-
-https://www.youtube.com/watch?v=zZ_-c67JFtI&ab_channel=SamuraiWorkTunes   (Shamisen and 90s Hip Hop | Rhythms to Power Your Workflow)
-
-https://www.youtube.com/watch?v=VJg95IoF1Dw&ab_channel=SoulKingRadio   (Gum-Gum Groove)
-
-https://www.youtube.com/watch?v=06qZsZU_q0U&ab_channel=SamuraiWorkTunes (Sunset Solace | Shamisen × Reggae × Hiphop | 50-Minute Flow)
